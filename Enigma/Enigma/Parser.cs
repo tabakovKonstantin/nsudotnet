@@ -50,7 +50,7 @@ namespace Enigma
                     }
                 default:
                     {
-                        throw new Exception("The parameter " + args[2] + " is incorrect.");
+                        throw new Exception(String.Concat("The parameter ", args[2], " is incorrect."));
                         break;
                     }
             }
@@ -61,7 +61,7 @@ namespace Enigma
             }
             else
             {
-                throw new Exception("File " + args[1] + " does not exist.");
+                throw new Exception(String.Concat("File ", args[1], " does not exist."));
             }
 
             switch (args[0])
@@ -81,23 +81,29 @@ namespace Enigma
                         }
                         else
                         {
-                            throw new Exception("File " + args[3] + " exist.");
+                            throw new Exception(String.Concat("File ", args[3], " exist."));
                         }
 
                         string nameInputFile = Path.GetFileNameWithoutExtension(_pathToInputFile);
+                        string pathToRootDir = Path.GetPathRoot(_pathToInputFile);
+
                         StringBuilder stringBuilder = new StringBuilder();
-                        stringBuilder.Append(Path.GetPathRoot(_pathToInputFile));
+                        //stringBuilder.Append(Path.GetPathRoot(_pathToInputFile));
                         stringBuilder.Append(nameInputFile);
                         stringBuilder.Append(".key");
                         stringBuilder.Append(_extentionKeyFile);
 
-                        if (!File.Exists(stringBuilder.ToString()))
+                        string pathToKeyFile = Path.Combine(pathToRootDir, stringBuilder.ToString());
+
+                        
+
+                        if (!File.Exists(pathToKeyFile))
                         {
-                            _pathToKeyFile = stringBuilder.ToString();
+                            _pathToKeyFile = pathToKeyFile;
                         }
                         else
                         {
-                            throw new Exception("File " + args[3] + " exist.");
+                            throw new Exception(String.Concat("File ", args[3], " exist."));
                         }
                         
                         break;
@@ -119,7 +125,7 @@ namespace Enigma
                         }
                         else
                         {
-                            throw new Exception("File " + args[3] + "or" + args[4] + " exist.");
+                            throw new Exception(String.Concat("File ", args[3], "or", args[4], " exist."));
                         }
 
                         break;
@@ -127,7 +133,7 @@ namespace Enigma
 
                 default:
                     {
-                        throw new Exception("The parameter " + args[0] + " is incorrect.");
+                        throw new Exception(String.Concat("The parameter ", args[0], " is incorrect."));
                         break;
                     }
             }

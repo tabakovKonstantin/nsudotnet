@@ -25,7 +25,7 @@ namespace Enigma
 
         public void Encrypt()
         {
-            CheckAlgorithmNull(_algorithm);
+            CheckAlgorithmNull();
 
             _key = _algorithm.Key;
             _iv = _algorithm.IV;
@@ -43,7 +43,7 @@ namespace Enigma
 
         public void Decrypt()
         {
-            CheckAlgorithmNull(_algorithm);
+            CheckAlgorithmNull();
             
             _algorithm.Padding = PaddingMode.None;
 
@@ -93,9 +93,9 @@ namespace Enigma
                 throw new ArgumentNullException("Все пиздец c вектором");
         }
 
-        private void CheckAlgorithmNull(SymmetricAlgorithm algorithm)
+        private void CheckAlgorithmNull()
         {
-            if (algorithm == null)
+            if (_algorithm == null)
             {
                 throw new Exception("Не установлен алгорит");
             }
