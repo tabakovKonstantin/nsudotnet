@@ -22,7 +22,7 @@ namespace LinesCounter
             } 
 
             _counter = new Counter();
-            string[] filesPath = Directory.GetFiles("1" , _parser.GetExtentionFile(), SearchOption.AllDirectories );
+            string[] filesPath = Directory.GetFiles(Directory.GetCurrentDirectory(), _parser.GetExtentionFile(), SearchOption.AllDirectories );
             _countAllLines += _counter.CountLines(filesPath);
 
             Console.WriteLine(_countAllLines);

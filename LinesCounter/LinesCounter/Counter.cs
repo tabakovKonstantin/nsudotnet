@@ -26,7 +26,7 @@ namespace LinesCounter
                             else
                             {
                                 _count++;
-                                Console.WriteLine(line);
+                                //Console.WriteLine(line);
                             }
                         }
                         else
@@ -48,7 +48,7 @@ namespace LinesCounter
                                 else
                                 {
                                     _count++;
-                                    Console.WriteLine(line);
+                                    //Console.WriteLine(line);
 
                                     while (true)
                                     {
@@ -65,7 +65,7 @@ namespace LinesCounter
                                 if (!line.Contains("*/"))
                                 {
                                     _count++;
-                                    Console.WriteLine(line);
+                                    //Console.WriteLine(line);
                                 }
                             }
                         }
